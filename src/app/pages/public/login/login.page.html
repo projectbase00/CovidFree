@@ -1,9 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>{{ 'LOGIN.title' | translate}}</ion-title>
+    <ion-title>{{ 'LOGIN.greeting' | translate:params }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-<ion-button (click)="login()" expand="block">Login</ion-button>
+<ion-button (click)="login()" expand="block">{{ 'LOGIN.button' | translate}}</ion-button>
 </ion-content>

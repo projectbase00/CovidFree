@@ -1,0 +1,11 @@
+{
+    "LOGIN": {
+        "title": "Login Screen",
+        "button":"Login Button",
+        "greeting": "Welcome {{name}}"
+    },
+    "REGISTER": {
+        "title": "Register Screen",
+        "button":"Register"
+    }
+}

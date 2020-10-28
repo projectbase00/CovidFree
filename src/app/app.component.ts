@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthenticationService } from './services/public/authentication/authentication.service';
 import { Router } from '@angular/router';
+import { LanguageService } from './services/public/helpers/language.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private languageService: LanguageService 
   ) {
     this.initializeApp();
   }
@@ -33,7 +35,8 @@ export class AppComponent {
           } else {
             this.router.navigate(['login']);
           }
-      })
+      });
+      this.languageService.setInitialAppLanguage();
     });
   }
 }

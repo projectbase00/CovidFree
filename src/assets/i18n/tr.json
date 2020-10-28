@@ -1,0 +1,11 @@
+{
+    "LOGIN": {
+        "title": "Giris Ekrani",
+        "button":"Giris Yap",
+        "greeting": "Hosgeldin {{name}}"
+    },
+    "REGISTER": {
+        "title": "Kayit Ekrani",
+        "button":"Kayit Ol"
+    }
+}

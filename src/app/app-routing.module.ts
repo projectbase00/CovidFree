@@ -25,8 +25,6 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
     loadChildren:  () => import('./pages/members/member-routing.module').then( m => m.MemberRoutingModule)
   }
-
-,
 ];
 
 @NgModule({

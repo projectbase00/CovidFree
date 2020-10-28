@@ -8,6 +8,10 @@ import { AuthenticationService } from 'src/app/services/public/authentication/au
 })
 export class LoginPage implements OnInit {
 
+  params = {
+    name: "Hizir Cagin Bektas"
+  };
+
   constructor(private authService: AuthenticationService) { }
 
   ngOnInit() {
