@@ -1,0 +1,7 @@
+{
+  "name": "CovidFree",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
