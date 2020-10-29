@@ -30,11 +30,11 @@ export class AppComponent {
       this.splashScreen.hide();
       this.authService.authentocationState.subscribe(state => {
         console.log('Auth State: ', state); //TODO: Remove this.
-          if (state){
-            this.router.navigate(['members', 'dashboard']);
-          } else {
-            this.router.navigate(['login']);
-          }
+          //if (state)
+            //this.router.navigate(['members', 'dashboard']);
+          //else
+            //this.router.navigate(['login']);
+          
       });
       this.languageService.setInitialAppLanguage();
     });
