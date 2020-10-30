@@ -1,23 +1,25 @@
 
-
-
 <ion-app>
   <ion-header class="ion-no-border" translucent>
     <ion-toolbar>
-      <ion-title>{{ 'LOGIN.title' | translate}}</ion-title>
+      <ion-title>GIRIS EKRANI</ion-title>
     </ion-toolbar>
   </ion-header>,
   <ion-content class="ion-no-border" fullscreen>
-    <ion-item>
-      <ion-label position="floating">Citizen ID</ion-label>
-      <ion-textarea name="citizenId" [(ngModel)]="postData.citizenId"></ion-textarea>
-    </ion-item>
-
-
-
-
-
-
-  <ion-button (click)="login()" expand="block">{{ 'LOGIN.button' | translate}}</ion-button>
+    <ion-card class="ion-no-border">
+      <ion-card-content>
+          <ion-grid class="center">
+            <ion-row>
+              <ion-input name="citizenId" [(ngModel)]="postData.citizenId" class="citizen-id" rows="1" placeholder="Citizen ID" [(ngModel)]="postData.citizenId"></ion-input>
+            </ion-row>
+            <ion-row>
+              <ion-col align-self-center>
+                  <br>
+                  <ion-button (click)="login()" expand="block">{{ 'LOGIN.button' | translate}}</ion-button>          
+               </ion-col>
+            </ion-row>
+          </ion-grid>  
+      </ion-card-content>
+    </ion-card>
   </ion-content>
 </ion-app>

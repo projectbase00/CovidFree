@@ -14,7 +14,7 @@
     <ion-item lines="none">
       <ion-row>
         <ion-col size="7" >
-          <ion-input name="smsCode" [(ngModel)]="postData.smsCode" type="numeric" maxlength="6" class="text-sms-code" rows="1" placeholder="code here" name="citizdenId" [(ngModel)]="postData.citizenId"></ion-input>
+          <ion-input name="smsCode" [(ngModel)]="postData.smsCode" type="numeric" maxlength="6" class="text-sms-code" rows="1" placeholder="code here"></ion-input>
         </ion-col>
       <ion-col size="5" >
         <ion-button (click)="getCode()" expand="block">Send code</ion-button>
