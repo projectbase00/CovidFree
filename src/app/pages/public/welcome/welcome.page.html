@@ -1,33 +1,24 @@
 <ion-app>
-  <ion-header translucent>
+  <ion-header class="ion-no-border" translucent>
     <ion-toolbar>
       <ion-title>TITLE HERE</ion-title>
     </ion-toolbar>
   </ion-header>,
-  <ion-content fullscreen>
-    <ion-card>
-      <img class="center"  height="150 px" width="150 px" src="../../../../assets/images/welcome-banner.png" />
+  <ion-content class="ion-no-border" fullscreen>
+    <ion-card class="ion-no-border">
+      <img class="center ion-no-border"  height="150 px" width="150 px" src="../../../../assets/images/welcome-banner.png" />
       <ion-card-header>
         <ion-card-title>Welcome</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        
-
           <ion-grid>
             <ion-row>
               <ion-col align-self-center>
                 <ion-button [routerLink]="['/registration']" expand="block" color="primary">Register</ion-button>
-        
-  
-
-        
                 <ion-button [routerLink]="['/login']" expand="block" color="danger">Sign In</ion-button>
               </ion-col>
             </ion-row>
-          </ion-grid>
-
-        
-   
+          </ion-grid>  
       </ion-card-content>
     </ion-card>
   </ion-content>

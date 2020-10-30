@@ -5,8 +5,15 @@
   }
 
   ion-content{
-    --background: #1C1C1D
+    --background: #1e1e1e
 }
 ion-card-title{
     text-align:  center;
+}
+ion-header{
+  --background: #1e1e1e
+}
+ion-toolbar{
+  --background: #1e1e1e;
+  text-align:  center;
 }

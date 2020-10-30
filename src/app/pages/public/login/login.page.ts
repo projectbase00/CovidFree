@@ -29,9 +29,7 @@ export class LoginPage implements OnInit {
   }
 
   login(postData: any){
-    console.log(this.postData.citizenId)
     this.getPhoneNumber(this.postData.citizenId);
-    
   }
 
   

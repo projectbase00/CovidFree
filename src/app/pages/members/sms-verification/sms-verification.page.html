@@ -1,14 +1,30 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>sms-verification</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-app>
+  <ion-header class="ion-no-border" translucent>
+    <ion-toolbar>
+      <ion-title>SMS Auth</ion-title>
+    </ion-toolbar>
+  </ion-header>,
+  <ion-content class="ion-no-border" fullscreen>
+    
+    <ion-item> 
+      <ion-label position="stacked">SMS Code Will send to:</ion-label>
+      <ion-input readonly style="text-align:center">{{postData.phoneNumber}}</ion-input>
+    </ion-item>
 
-<ion-content>
-
-  <ion-item>
-    <ion-label position="floating">PhoneNo</ion-label>
-    <ion-textarea name="phoneNumber" [(ngModel)]="postData.phoneNumber"></ion-textarea>
-  </ion-item>
-
-</ion-content>
+    <ion-item lines="none">
+      <ion-row>
+        <ion-col size="7" >
+          <ion-input name="smsCode" [(ngModel)]="postData.smsCode" type="numeric" maxlength="6" class="text-sms-code" rows="1" placeholder="code here" name="citizdenId" [(ngModel)]="postData.citizenId"></ion-input>
+        </ion-col>
+      <ion-col size="5" >
+        <ion-button (click)="getCode()" expand="block">Send code</ion-button>
+      </ion-col>
+    </ion-row>
+    </ion-item>
+      <ion-row>
+        <ion-col size="4" offset="4">
+          <ion-button (click)="loginAndGetHash()" expand="block">LOGIN</ion-button>
+        </ion-col>
+      </ion-row>
+  </ion-content>
+</ion-app>

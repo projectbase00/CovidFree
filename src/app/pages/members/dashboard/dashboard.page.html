@@ -1,11 +1,23 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>dashboard</ion-title>
-    <ion-button (click)="logout()" expand="block">Login</ion-button>
 
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
 
-</ion-content>
+<ion-app>
+  <ion-header class="ion-no-border" translucent>
+    <ion-toolbar>
+      <ion-title>TITLE</ion-title>
+    </ion-toolbar>
+  </ion-header>,
+  <ion-content class="ion-no-border" fullscreen>
+    <ion-item>
+      <ion-label position="floating">Citizen ID</ion-label>
+      <ion-textarea name="citizenId" [(ngModel)]="postData.citizenId"></ion-textarea>
+    </ion-item>
+
+
+
+
+
+
+  <ion-button (click)="login()" expand="block">TITLE</ion-button>
+  </ion-content>
+</ion-app>
