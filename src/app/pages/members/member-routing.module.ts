@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: 'sms-verification',
     loadChildren: () => import('./sms-verification/sms-verification.module').then( m => m.SmsVerificationPageModule)
+  },
+  {
+    path: 'qr-scanner',
+    loadChildren: () => import('./qr-scanner/qr-scanner.module').then( m => m.QrScannerPageModule)
   }
 ];
 
