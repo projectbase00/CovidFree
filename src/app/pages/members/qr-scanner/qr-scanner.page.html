@@ -5,32 +5,21 @@
     </ion-toolbar>
   </ion-header>,
   <ion-content class="ion-no-border" fullscreen>
-    <ion-card class="ion-no-border">
-      <ion-card-content>
-          <ion-grid class="center">
-            <ion-row class="center">
-              <ion-col class="center">
-                  <ngx-qrcode class="center"
-                  [elementType]="text" 
-                  [value]="login.hashCode"
-                  errorCorrectionLevel="L">
-                </ngx-qrcode>
-              </ion-col>
-            </ion-row>
-            <ion-row>
-              <ion-card-subtitle class="center">Id Number: {{login.citizenId}}</ion-card-subtitle>
-            </ion-row>
-            <ion-row>
-              <ion-card-subtitle class="center">Check Id Card</ion-card-subtitle>
-            </ion-row>
-            <ion-row>
-              <ion-col align-self-center>
-                  <br>
-                  <ion-button [routerLink]="['/members/qr-scanner']" expand="block" color="success">SCAN Code</ion-button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>  
-      </ion-card-content>
-    </ion-card>
+    
+   <ion-button expand="full" (click)="scanCode()">
+      SCAN CODE
+   </ion-button>
+   <ion-button expand="full" (click)="scanCode()">
+    SCAN CODE
+ </ion-button>
+
+ <video #video [hidden]="!scanActive" width="100%"></video>
+ <canvas #canvas hidden></canvas>
+
+ <ion-button expand="full" (click)="stopScan()" color="danger">
+  STOP SCANNING
+</ion-button>
+
+{{scanResult}}
   </ion-content>
 </ion-app>
