@@ -11,7 +11,7 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  path: string = 'http://192.168.1.13:8080/api/mobile-users/getphonenumberbyid/'
+  path: string = 'http://192.168.1.14:8080/api/mobile-users/getphonenumberbyid/'
   _login: login = {} as login;
 
   //TODO: Update for multilang properties
@@ -35,6 +35,7 @@ export class LoginPage implements OnInit {
   
   getPhoneNumber(citizenId: any) {
     this.http.get<login>(this.path + citizenId).toPromise().then(data => {
+      console.log(data);
       this._login.citizenId = data.citizenId;
       this._login.phoneNumber = data.phoneNumber;
 
