@@ -54,13 +54,19 @@ export class SmsVerificationPage implements OnInit {
   }
 
   getCode(){
+    this._login.smsCode = "1234";
+    /*
     const body = { "citizenId": this._login.citizenId, "phoneNumber": this._login.phoneNumber };
     this.http.post<smsCode>(this.smsPath, body).toPromise().then(data => {
       this._login.smsCode = data.code;
     });
+    */
   }
 
   loginAndGetHash(){
+    this.storage.set(constants.HASH_CODE, "1");
+    this.router.navigate(['members', 'dashboard']);
+
     const body = { "citizenId": this._login.citizenId, "phoneNumber": this._login.phoneNumber, "code": this._login.smsCode };
     this.http.post<hashCode>(this.hashPath, body).toPromise().then(data => {
         this.storage.set(constants.HASH_CODE, data.hash);

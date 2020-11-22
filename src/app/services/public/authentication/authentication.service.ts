@@ -32,7 +32,7 @@ export class AuthenticationService {
      this.storage.set(constants.TOKEN_KEY, 'TOKEN KEY WILL PLACE HERE');
      this.storage.set(constants.CITIZEN_ID, loginInfo.citizenId);
      this.storage.set(constants.PHONE_NUMBER, loginInfo.phoneNumber);
-     this.router.navigate(['members', 'qr-scanner']);
+     this.router.navigate(['members', 'sms-verification']);
   }
   logout(){
           return this.storage.remove(TOKEN_KEY).then(res => {
