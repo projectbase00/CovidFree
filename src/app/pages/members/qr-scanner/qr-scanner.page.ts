@@ -8,13 +8,10 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./qr-scanner.page.scss'],
 })
 export class QrScannerPage{
-
-  
   scannedData: any;
-  encodedData: '';
-  encodeData: any;
-  inputData: any;
-  constructor(private barcodeScanner: BarcodeScanner, public toastController: ToastController) { }
+  constructor(private barcodeScanner: BarcodeScanner, public toastController: ToastController) {
+    this.scanBarcode()
+   }
 
   async presentToast(m: string) {
     const toast = await this.toastController.create({
@@ -26,24 +23,22 @@ export class QrScannerPage{
 
   scanBarcode() {
     const options: BarcodeScannerOptions = {
+      disableAnimations: true,
       preferFrontCamera: false,
-      showFlipCameraButton: true,
-      showTorchButton: true,
+      showFlipCameraButton: false,
+      showTorchButton: false,
       torchOn: false,
-      prompt: 'Place a barcode inside the scan area',
+      prompt: '',
       resultDisplayDuration: 500,
       formats: 'EAN_13,EAN_8,QR_CODE,PDF_417 ',
       orientation: 'portrait',
     };
 
     this.barcodeScanner.scan(options).then(barcodeData => {
-      console.log('Barcode data', barcodeData);
       this.scannedData = barcodeData;
-
+      this.presentToast(this.scannedData);
     }).catch(err => {
       this.presentToast(err)
     });
   }
-
- 
 }
