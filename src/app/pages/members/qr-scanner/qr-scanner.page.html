@@ -1,25 +1,11 @@
-<ion-app>
-  <ion-header class="ion-no-border" translucent>
-    <ion-toolbar>
-      <ion-title>QR Scanner</ion-title>
-    </ion-toolbar>
-  </ion-header>,
-  <ion-content class="ion-no-border" fullscreen>
-    
-   <ion-button expand="full" (click)="scanCode()">
-      SCAN CODE
-   </ion-button>
-   <ion-button expand="full" (click)="scanCode()">
-    SCAN CODE
- </ion-button>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ionic QR/ Barcode Scanner
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
- <video #video [hidden]="!scanActive" width="100%"></video>
- <canvas #canvas hidden></canvas>
+<ion-content [fullscreen]="true" class="ion-padding">
 
- <ion-button expand="full" (click)="stopScan()" color="danger">
-  STOP SCANNING
-</ion-button>
-
-{{scanResult}}
-  </ion-content>
-</ion-app>
+</ion-content>

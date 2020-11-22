@@ -34,6 +34,11 @@ export class LoginPage implements OnInit {
 
   
   getPhoneNumber(citizenId: any) {
+    this._login.citizenId = 1;
+    this._login.phoneNumber = "300300300300";
+
+    this.authService.login(this._login);
+    /*
     this.http.get<login>(this.path + citizenId).toPromise().then(data => {
       console.log(data);
       this._login.citizenId = data.citizenId;
@@ -41,5 +46,6 @@ export class LoginPage implements OnInit {
 
       this.authService.login(this._login);
     });
+    */
   }
 }
