@@ -1,11 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Ionic QR/ Barcode Scanner
+SCANING
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-row>
+    <ion-col text-center>
+      <div [hidden]=isPositive class="roundCornersGreen">
+          Result NEGATIVE
+      </div>
+      <div [hidden]=!isPositive class="roundCornersRed">
+          Result POSITIVE!!!
+      </div>
+    </ion-col>
+  </ion-row>
+
+<ion-button class="bottom-button" expand="block" size="large" (click)="scanBarcode()">NEW SCAN</ion-button>
 
 </ion-content>

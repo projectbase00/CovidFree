@@ -8,6 +8,7 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./qr-scanner.page.scss'],
 })
 export class QrScannerPage{
+  isPositive = false;
   scannedData: any;
   constructor(private barcodeScanner: BarcodeScanner, public toastController: ToastController) {
     this.scanBarcode()
@@ -36,7 +37,13 @@ export class QrScannerPage{
 
     this.barcodeScanner.scan(options).then(barcodeData => {
       this.scannedData = barcodeData;
-      this.presentToast(this.scannedData);
+
+      let num: number = Math.floor(Math.random() * 11);
+      if  (num % 2 == 0)
+        this.isPositive = true;
+      else
+        this.isPositive = false;
+
     }).catch(err => {
       this.presentToast(err)
     });
