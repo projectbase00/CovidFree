@@ -1,9 +1,28 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+<ion-app>
+  <ion-header class="ion-no-border" translucent>
+    <ion-toolbar>
+      <ion-title>Register</ion-title>
+    </ion-toolbar>
+  </ion-header>,
+  <ion-content class="ion-no-border" fullscreen>
+    <ion-card class="ion-no-border">
+      <ion-card-content>
+          <ion-grid class="center">
+            <ion-row>
+              <ion-input name="citizenId" [(ngModel)]="postData.citizenId" class="text-box" rows="1" placeholder="Citizen ID" [(ngModel)]="postData.citizenId"></ion-input>
+            </ion-row>
+            <br>
+            <ion-row>
+              <ion-input name="citizenId" [(ngModel)]="postData.citizenId" class="text-box" rows="1" placeholder="Citizen ID" [(ngModel)]="postData.citizenId"></ion-input>
+            </ion-row>
+            <ion-row>
+              <ion-col align-self-center>
+                  <br>
+                  <ion-button (click)="login()" expand="block">REGISTER</ion-button>          
+               </ion-col>
+            </ion-row>
+          </ion-grid>  
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</ion-app>
