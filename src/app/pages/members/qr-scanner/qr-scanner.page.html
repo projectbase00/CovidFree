@@ -1,24 +1,20 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-SCANING
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true" class="ion-padding">
-
-  <ion-row>
-    <ion-col text-center>
-      <div [hidden]=isPositive class="roundCornersGreen">
-          Result NEGATIVE
-      </div>
-      <div [hidden]=!isPositive class="roundCornersRed">
-          Result POSITIVE!!!
-      </div>
-    </ion-col>
-  </ion-row>
-
-<ion-button class="bottom-button" expand="block" size="large" (click)="scanBarcode()">NEW SCAN</ion-button>
-
-</ion-content>
+<ion-app>
+  <ion-header class="ion-no-border" translucent>
+    <ion-toolbar>
+      <ion-title>SCANNING</ion-title>
+    </ion-toolbar>
+  </ion-header>,
+  <ion-content class="ion-no-border" fullscreen>
+    <ion-card class="ion-no-border ion-card-green" *ngIf="isPositive">
+      <ion-card-content class="ion-card-content-green-text"> 
+        Result NEGATIVE
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="ion-no-border ion-card-red" *ngIf="!isPositive">
+      <ion-card-content class="ion-card-content-red-text"> 
+        Result POSITIVE
+      </ion-card-content>
+    </ion-card>
+    <ion-button class="bottom-button" expand="block" size="large" (click)="scanBarcode()">NEW SCAN</ion-button>
+  </ion-content>
+</ion-app>
