@@ -12,7 +12,8 @@ import { HttpClient } from '@angular/common/http';
 export class RegisterPage implements OnInit {
   croppedImagepath = "";
   imageData = "";
-  isLoading = false;
+  isLoadingPick = false;
+  isLoadingRegister = false;
 
   imagePickerOptions = {
     maximumImagesCount: 1,
@@ -31,18 +32,22 @@ export class RegisterPage implements OnInit {
   }
   path: string = 'http://192.168.1.13:8080/api/mobile-users/register'
   register(){
+    this.isLoadingRegister = true;
       const body = { "citizenId": 1234333, 
           "phoneNumber": "123456",
           "base64Image": this.imageData
       };
       this.http.post<string>(this.path, body).toPromise().then(data => {
         console.log(data)
+        this.croppedImagepath = "";
+        this.isLoadingRegister = false;
       }, (err) =>  {
       console.log(err);
       });
   }
 
   pickImage(sourceType) {
+    this.isLoadingPick = true;
     const options: CameraOptions = {
       quality: 100,
       sourceType: sourceType,
@@ -53,6 +58,8 @@ export class RegisterPage implements OnInit {
     this.camera.getPicture(options).then((imageData) => {
       this.imageData = imageData;
       this.croppedImagepath = "data:image/png;base64," +  imageData;
+      this.isLoadingPick = false;
+
       console.log("done")
       }, (err) => {
         console.log(err)
