@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RegisterPage implements OnInit {
   croppedImagepath = "";
+  imageData = "";
   isLoading = false;
 
   imagePickerOptions = {
@@ -32,7 +33,7 @@ export class RegisterPage implements OnInit {
   register(){
       const body = { "citizenId": 1234333, 
           "phoneNumber": "123456",
-          "base64Image": this.croppedImagepath
+          "base64Image": this.imageData
       };
       this.http.post<string>(this.path, body).toPromise().then(data => {
         console.log(data)
@@ -50,7 +51,8 @@ export class RegisterPage implements OnInit {
       mediaType: this.camera.MediaType.PICTURE
     }
     this.camera.getPicture(options).then((imageData) => {
-      this.croppedImagepath =  imageData;
+      this.imageData = imageData;
+      this.croppedImagepath = "data:image/png;base64," +  imageData;
       console.log("done")
       }, (err) => {
         console.log(err)
