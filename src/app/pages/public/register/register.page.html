@@ -1,9 +1,45 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+<ion-app>
+  <ion-header class="ion-no-border" translucent>
+    <ion-toolbar>
+      <ion-title>Register</ion-title>
+    </ion-toolbar>
+  </ion-header>,
+  <ion-content class="ion-no-border" fullscreen>
+    <ion-card class="ion-no-border">
+      <ion-card-content>
+          <ion-grid class="center">
+            <ion-row>
+              <ion-input name="citizenId"  class="text-box" rows="1" placeholder="Phone Number" ></ion-input>
+            </ion-row>
+            <br>
+            <ion-row>
+              <ion-input name="citizenId"  class="text-box" rows="1" placeholder="Citizen ID" ></ion-input>
+            </ion-row>
+            <br>
+            <ion-row>
+              <ion-col size="6">
+                <ion-label>
+                  File Name
+                </ion-label>
+              </ion-col>
+              <ion-col size="6">
+                <ion-button (click)="selectImage()" expand="block">Pick
+                  <div></div>
+                  <ion-spinner [hidden]="!isLoadingPick" name="crescent"></ion-spinner>
+                </ion-button>   
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col align-self-center>
+                  <br>
+                  <ion-button (click)="register()" expand="block">REGISTER
+                    <ion-spinner [hidden]="!isLoadingRegister" name="crescent"></ion-spinner>
+                  </ion-button>          
+                 </ion-col>
+            </ion-row>
+          </ion-grid>  
+          <img [src]="croppedImagepath"/>        
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</ion-app>
