@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/Camera/ngx';
-import { File } from '@ionic-native/file/ngx';
 import { ActionSheetController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
+import { constants } from 'src/app/utils/constants';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+  private readonly path: string = constants.API_SERVER + constants.REGISTER;
   croppedImagepath = "";
   imageData = "";
   isLoadingPick = false;
@@ -24,13 +25,12 @@ export class RegisterPage implements OnInit {
     private camera: Camera,
     private http: HttpClient,
     public actionSheetController: ActionSheetController,
-    private file: File
   ) { 
   }
 
   ngOnInit() {
+
   }
-  path: string = 'http://192.168.1.13:8080/api/mobile-users/register'
   register(){
     this.isLoadingRegister = true;
       const body = { "citizenId": 1234333, 
