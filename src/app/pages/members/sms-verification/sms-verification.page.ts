@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./sms-verification.page.scss'],
 })
 export class SmsVerificationPage implements OnInit {
-  smsPath: string = 'http://192.168.1.13:8080/api/mobile-users/getmessagecodebycitizen'
-  hashPath: string = 'http://192.168.1.13:8080/api/mobile-users/gethashcodebycitizen'
+  private readonly smsPath: string = constants.API_SERVER + constants.SMS_CODE;
+  private readonly hashPath: string = constants.API_SERVER + constants.HASHCODE;
 
   _login: login = {} as login;
 
@@ -54,13 +54,10 @@ export class SmsVerificationPage implements OnInit {
   }
 
   getCode(){
-    this._login.smsCode = "1234";
-    /*
     const body = { "citizenId": this._login.citizenId, "phoneNumber": this._login.phoneNumber };
     this.http.post<smsCode>(this.smsPath, body).toPromise().then(data => {
       this._login.smsCode = data.code;
     });
-    */
   }
 
   loginAndGetHash(){

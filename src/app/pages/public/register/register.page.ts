@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/Camera/ngx';
-import { File } from '@ionic-native/file/ngx';
 import { ActionSheetController } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
+import { constants } from 'src/app/utils/constants';
 
 @Component({
   selector: 'app-register',
@@ -9,8 +10,11 @@ import { ActionSheetController } from '@ionic/angular';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+  private readonly path: string = constants.API_SERVER + constants.REGISTER;
   croppedImagepath = "";
-  isLoading = false;
+  imageData = "";
+  isLoadingPick = false;
+  isLoadingRegister = false;
 
   imagePickerOptions = {
     maximumImagesCount: 1,
@@ -19,13 +23,31 @@ export class RegisterPage implements OnInit {
   
   constructor(
     private camera: Camera,
+    private http: HttpClient,
     public actionSheetController: ActionSheetController,
-    private file: File
-  ) { }
+  ) { 
+  }
 
   ngOnInit() {
+
   }
+  register(){
+    this.isLoadingRegister = true;
+      const body = { "citizenId": 1234333, 
+          "phoneNumber": "123456",
+          "base64Image": this.imageData
+      };
+      this.http.post<string>(this.path, body).toPromise().then(data => {
+        console.log(data)
+        this.croppedImagepath = "";
+        this.isLoadingRegister = false;
+      }, (err) =>  {
+      console.log(err);
+      });
+  }
+
   pickImage(sourceType) {
+    this.isLoadingPick = true;
     const options: CameraOptions = {
       quality: 100,
       sourceType: sourceType,
@@ -34,11 +56,14 @@ export class RegisterPage implements OnInit {
       mediaType: this.camera.MediaType.PICTURE
     }
     this.camera.getPicture(options).then((imageData) => {
-      // imageData is either a base64 encoded string or a file URI
-      this.croppedImagepath = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
-      // Handle error
-    });
+      this.imageData = imageData;
+      this.croppedImagepath = "data:image/png;base64," +  imageData;
+      this.isLoadingPick = false;
+
+      console.log("done")
+      }, (err) => {
+        console.log(err)
+      });
   }
 
   async selectImage() {
@@ -64,5 +89,4 @@ export class RegisterPage implements OnInit {
     });
     await actionSheet.present();
   }
-
 }
